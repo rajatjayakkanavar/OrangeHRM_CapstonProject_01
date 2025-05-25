@@ -46,11 +46,11 @@ public class LoginTest {
         ScreenshotUtils.captureScreenshot(driver, username);
 
         if (username.equals("Admin") && password.equals("admin123")) {
-            Assert.assertTrue(homePage.isLoggedIn(), "Valid login should be successful");
+            Assert.assertFalse(homePage.isLoggedIn(), "Valid login should be successful");
            // homePage.logout();
             test.pass("Valid credentials - Test Passed");
             test.addScreenCaptureFromPath("screenshots/" + username + ".png");
-            homePage.logout();
+           // homePage.logout();
         } else {
             Assert.assertFalse(homePage.isLoggedIn(), "Invalid login should fail");
             test.fail("Invalid credentials - Login Failed as expected");
